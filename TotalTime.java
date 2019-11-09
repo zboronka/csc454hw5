@@ -24,6 +24,8 @@ public class TotalTime implements Comparable<TotalTime> {
 	}
 
 	public String toString() {
-		return Double.toString(real_time);
+		String ret = "";
+		ret += "(" + Double.toString(real_time) + ", " + discrete_time + ")";
+		return ret;
 	}
 }

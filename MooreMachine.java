@@ -1,8 +1,9 @@
 import java.util.Collection;
 
-public interface MooreMachine {
+public interface MooreMachine extends Comparable<MooreMachine> {
 	void setInternal(Event e);
 	Event getInternal();
+	int getPriority();
 
 	Collection<Port> getInputs();
 	Collection<Port> getOutputs();
@@ -13,4 +14,6 @@ public interface MooreMachine {
 	void deltaint();
 	void deltaext(double e);
 	void deltacon();
+
+	int compareTo(MooreMachine m);
 }

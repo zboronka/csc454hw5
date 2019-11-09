@@ -8,8 +8,12 @@ public class Port<T> {
 	}
 
 	public T get() {
-		open = false;
-		return payload;
+		if(open) {
+			open = false;
+			return payload;
+		}
+
+		return null;
 	}
 
 	public boolean available() {

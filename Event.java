@@ -6,26 +6,15 @@ public class Event implements Comparable<Event> {
 	public TotalTime time;
 	public MooreMachine target;
 	public Delta delta;
-	public double elapse;
-	public Integer input;
 
-	public Event(Delta delta, TotalTime time, MooreMachine target, double elapse) {
+	public Event(Delta delta, TotalTime time, MooreMachine target) {
 		this.time = time;
 		this.target = target;
 		this.delta = delta;
-		this.elapse = elapse;
-	}
-
-	public Event(Delta delta, TotalTime time, MooreMachine target, double elapse, Integer input) {
-		this.time = time;
-		this.target = target;
-		this.delta = delta;
-		this.elapse = elapse;
-		this.input = input;
 	}
 
 	public int compareTo(Event c) {
-		return time.compareTo(c.time) == 0 ? Integer.compare(target.hashCode(), c.target.hashCode()) == 0 ? Integer.compare(delta.ordinal(), c.delta.ordinal()) : Integer.compare(target.hashCode(), c.target.hashCode()) : time.compareTo(c.time);
+		return time.compareTo(c.time) == 0 ? target.compareTo(c.target) == 0 ? Integer.compare(delta.ordinal(), c.delta.ordinal()) : target.compareTo(c.target) : time.compareTo(c.time);
 	}
 
 	public String toString() {
