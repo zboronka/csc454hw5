@@ -2,7 +2,6 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 public class Machine implements MooreMachine {
-	private int e;
 	private int p;
 
 	private double s;
@@ -24,18 +23,6 @@ public class Machine implements MooreMachine {
 	public void setInternal(Event e) { internal = e; }
 	public Event getInternal() { return internal; }
 	public int getPriority() { return priority; }
-
-	public Collection<Port> getInputs() {
-		ArrayList<Port> ret = new ArrayList<>();
-		ret.add(input);
-		return ret;
-	}
-
-	public Collection<Port> getOutputs() {
-		ArrayList<Port> ret = new ArrayList<>();
-		ret.add(output);
-		return ret;
-	}
 
 	public double ta() {
 		return p > 0 ? s : -1;

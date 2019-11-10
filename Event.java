@@ -31,7 +31,7 @@ public class Event implements Comparable<Event> {
 			default:
 				break;
 		}
-		ret += "\nCurrent time: " + time.toString();
+		ret += "\nCurrent time: " + time;
 		ret += "\nMACHINE " + target;
 		return ret;
 	}

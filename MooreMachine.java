@@ -5,9 +5,6 @@ public interface MooreMachine extends Comparable<MooreMachine> {
 	Event getInternal();
 	int getPriority();
 
-	Collection<Port> getInputs();
-	Collection<Port> getOutputs();
-
 	double ta();
 
 	void lambda();

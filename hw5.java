@@ -55,17 +55,18 @@ public class hw5 {
 				netin.input.set(trajectory.get(e));
 				netin.pipe();
 				System.out.println("\u001b[36mNETWORK IN\u001b[39;49m");
-				System.out.println("Current time: " + e.time.toString());
+				System.out.println("Current time: " + e.time);
 				System.out.println(trajectory.get(e) + "\n");
 			}
 
 			if(pqueue.peek() != null && e.time.compareTo(pqueue.peek().time) == 0 && e.target == pqueue.peek().target) {
-				Event t = pqueue.poll();
+				pqueue.poll();
 				pqueue.offer(new Event(Delta.CON, e.time, e.target));
 				continue;
 			}
 
 			System.out.println(e.toString());
+			System.out.println();
 			switch(e.delta) {
 				case EXT:
 					e.target.deltaext(elapse);
@@ -77,12 +78,10 @@ public class hw5 {
 				case INT:
 					e.target.lambda();
 					e.target.deltaint();
-					System.out.println();
 					break;
 				case CON:
 					e.target.lambda();
 					e.target.deltacon();
-					System.out.println();
 				default:
 					break;
 			}
@@ -104,7 +103,7 @@ public class hw5 {
 
 			if(output.available()) { 
 				System.out.println("\u001b[35mNETWORK OUT\u001b[39;49m");
-				System.out.println("Current time: " + current.toString());
+				System.out.println("Current time: " + current);
 				System.out.println(output.get() + "\n");
 			}
 		}
